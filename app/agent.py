@@ -1,15 +1,23 @@
 # ADK core imports
+import logging
 from google.adk.agents import Agent
 from google.adk.tools.load_memory_tool import load_memory_tool
 
 # Local tool imports
-from rag.tools import corpus_tools
-from rag.tools import storage_tools
-from rag.config import (
+from app.tools import corpus_tools
+from app.tools import storage_tools
+from app.config import (
     AGENT_NAME,
     AGENT_MODEL,
-    AGENT_OUTPUT_KEY
+    AGENT_OUTPUT_KEY,
+    LOG_LEVEL,
+    LOG_FORMAT
 )
+
+# Initialize logging
+logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
+logger = logging.getLogger(__name__)
+logger.info(f"Initializing agent {AGENT_NAME} with model {AGENT_MODEL}")
 
 
 # Create the RAG management agent
@@ -93,3 +101,7 @@ agent = Agent(
 )
 
 root_agent = agent
+
+from google.adk.apps import App
+
+app = App(root_agent=root_agent, name="app")

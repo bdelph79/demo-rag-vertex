@@ -20,7 +20,7 @@ import vertexai
 from vertexai.preview import rag
 from google.adk.tools import FunctionTool
 from typing import Dict, Optional, Any
-from rag.config import (
+from app.config import (
     PROJECT_ID,
     LOCATION,
     RAG_DEFAULT_EMBEDDING_MODEL,

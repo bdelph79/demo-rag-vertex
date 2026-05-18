@@ -1,0 +1,188 @@
+Installed 5 packages in 61ms
+2026-05-18 16:19:43,964 - INFO - service_factory.py:266 - Using in-memory memory service
+2026-05-18 16:19:43,964 - INFO - local_storage.py:84 - Using per-agent session storage rooted at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine
+2026-05-18 16:19:43,965 - INFO - local_storage.py:110 - Using file artifact service at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.adk/artifacts
+/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:204: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [86665]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57430 - "GET / HTTP/1.1" 404 Not Found
+2026-05-18 16:19:44,647 - INFO - local_storage.py:60 - Creating local session service at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/app/.adk/session.db
+2026-05-18 16:19:44,661 - INFO - adk_web_server.py:867 - New session created: 43d0b1cd-df59-4496-833e-c4e118e39e1d
+INFO:     127.0.0.1:57432 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-05-18 16:19:44,668 - INFO - envs.py:83 - Loaded .env file for app at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.env
+2026-05-18 16:19:44,669 - INFO - envs.py:83 - Loaded .env file for app at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.env
+INFO:     127.0.0.1:57434 - "POST /run_sse HTTP/1.1" 200 OK
+2026-05-18 16:19:45,160 - INFO - _api_client.py:705 - The project/location from the environment variables will take precedence over the API key from the environment variables.
+2026-05-18 16:19:45,323 - INFO - google_llm.py:208 - Sending out request, model: gemini-flash-latest, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-18 16:19:45,807 - ERROR - adk_web_server.py:1978 - Error in event_generator: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': "Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/gemini-enterprise-496008/locations/global/publishers/google/models/gemini-flash-latest' (or it may not exist).", 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'IAM_PERMISSION_DENIED', 'domain': 'aiplatform.googleapis.com', 'metadata': {'permission': 'aiplatform.endpoints.predict', 'resource': 'projects/gemini-enterprise-496008/locations/global/publishers/google/models/gemini-flash-latest'}}]}}
+Traceback (most recent call last):
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/cli/adk_web_server.py", line 1950, in event_generator
+    async for event in agen:
+    ...<25 lines>...
+        yield f"data: {sse_event}\n\n"
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 631, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 616, in _run_with_trace
+    async for event in agen:
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 892, in _exec_with_plugin
+    async for event in agen:
+    ...<65 lines>...
+      yield output_event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 605, in execute
+    async for event in agen:
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/agents/llm_agent.py", line 488, in _run_async_impl
+    async for event in agen:
+    ...<5 lines>...
+        should_pause = True
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 810, in run_async
+    async for event in agen:
+      last_event = event
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 887, in _run_one_step_async
+    async for llm_response in agen:
+    ...<13 lines>...
+          yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 1267, in _call_llm_async
+    async for event in agen:
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 1245, in _call_llm_with_tracing
+    async for llm_response in agen:
+    ...<18 lines>...
+      yield llm_response
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 1328, in _run_and_handle_error
+    async for response in agen:
+      yield response
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 410, in _run_and_handle_error
+    raise model_error
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/flows/llm_flows/base_llm_flow.py", line 383, in _run_and_handle_error
+    async for llm_response in agen:
+    ...<5 lines>...
+      yield llm_response
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 292, in generate_content_async
+    raise ce
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/models/google_llm.py", line 271, in generate_content_async
+    response = await self.api_client.aio.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/models.py", line 8410, in generate_content
+    return await self._generate_content(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        model=model, contents=contents, config=parsed_config
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/models.py", line 6953, in _generate_content
+    response = await self._api_client.async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'post', path, request_dict, http_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1651, in async_request
+    result = await self._async_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        http_request=http_request, http_options=http_options, stream=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1584, in _async_request
+    return await self._async_retry(  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self._async_request_once, http_request, stream
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/Users/bdelph/.local/share/uv/python/cpython-3.13.7-macos-x86_64-none/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/bdelph/.local/share/uv/python/cpython-3.13.7-macos-x86_64-none/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/_api_client.py", line 1515, in _async_request_once
+    await errors.APIError.raise_for_async_response(response)
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 247, in raise_for_async_response
+    await cls.raise_error_async(status_code, response_json, response)
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/genai/errors.py", line 269, in raise_error_async
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': "Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/gemini-enterprise-496008/locations/global/publishers/google/models/gemini-flash-latest' (or it may not exist).", 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'IAM_PERMISSION_DENIED', 'domain': 'aiplatform.googleapis.com', 'metadata': {'permission': 'aiplatform.endpoints.predict', 'resource': 'projects/gemini-enterprise-496008/locations/global/publishers/google/models/gemini-flash-latest'}}]}}
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-05-18 16:19:45,957 - INFO - runners.py:1611 - Closing runner...
+2026-05-18 16:19:45,957 - INFO - runners.py:1623 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [86665]
+   Building demo-rag-vertex @ file:///Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine
+      Built demo-rag-vertex @ file:///Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine
+Uninstalled 1 package in 7ms
+Installed 1 package in 4ms
+2026-05-18 21:29:58,571 - INFO - service_factory.py:266 - Using in-memory memory service
+2026-05-18 21:29:58,572 - INFO - local_storage.py:84 - Using per-agent session storage rooted at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine
+2026-05-18 21:29:58,572 - INFO - local_storage.py:110 - Using file artifact service at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.adk/artifacts
+/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/cli/fast_api.py:204: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+INFO:     Started server process [18642]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18080 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57491 - "GET / HTTP/1.1" 404 Not Found
+2026-05-18 21:29:58,995 - INFO - local_storage.py:60 - Creating local session service at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/app/.adk/session.db
+2026-05-18 21:29:59,008 - INFO - adk_web_server.py:867 - New session created: 86934920-b4cf-410d-a543-d80aeed53d9d
+INFO:     127.0.0.1:57493 - "POST /apps/app/users/cli-user/sessions HTTP/1.1" 200 OK
+2026-05-18 21:29:59,016 - INFO - envs.py:83 - Loaded .env file for app at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.env
+2026-05-18 21:29:59,016 - INFO - envs.py:83 - Loaded .env file for app at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.env
+2026-05-18 21:30:12,736 - INFO - agent.py:20 - Initializing agent rag_corpus_manager with model gemini-1.5-flash
+2026-05-18 21:30:12,737 - WARNING - runners.py:353 - App name mismatch detected. The runner is configured with app name "rag", but the root agent was loaded from "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/app", which implies app name "app".
+INFO:     127.0.0.1:57495 - "POST /run_sse HTTP/1.1" 200 OK
+2026-05-18 21:30:12,750 - INFO - local_storage.py:60 - Creating local session service at /Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/rag/.adk/session.db
+2026-05-18 21:30:12,763 - ERROR - adk_web_server.py:1978 - Error in event_generator: Session not found: 86934920-b4cf-410d-a543-d80aeed53d9d. The runner is configured with app name "rag", but the root agent was loaded from "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/app", which implies app name "app". Ensure the runner app_name matches that directory or pass app_name explicitly when constructing the runner. The mismatch prevents the runner from locating the session. To automatically create a session when missing, set auto_create_session=True when constructing the runner.
+Traceback (most recent call last):
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/cli/adk_web_server.py", line 1950, in event_generator
+    async for event in agen:
+    ...<25 lines>...
+        yield f"data: {sse_event}\n\n"
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 631, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 546, in _run_with_trace
+    session = await self._get_or_create_session(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/.venv/lib/python3.13/site-packages/google/adk/runners.py", line 434, in _get_or_create_session
+    raise SessionNotFoundError(message)
+google.adk.errors.session_not_found_error.SessionNotFoundError: Session not found: 86934920-b4cf-410d-a543-d80aeed53d9d. The runner is configured with app name "rag", but the root agent was loaded from "/Users/bdelph/Documents/Google/agentic-apps/Demo-rag-vertex/adk-vertex-ai-rag-engine/app", which implies app name "app". Ensure the runner app_name matches that directory or pass app_name explicitly when constructing the runner. The mismatch prevents the runner from locating the session. To automatically create a session when missing, set auto_create_session=True when constructing the runner.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-05-18 21:30:12,941 - INFO - runners.py:1611 - Closing runner...
+2026-05-18 21:30:12,941 - INFO - runners.py:1623 - Runner closed.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [18642]

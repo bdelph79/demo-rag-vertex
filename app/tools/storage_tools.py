@@ -10,7 +10,7 @@ from google.api_core.exceptions import GoogleAPIError
 from google.adk.tools import ToolContext, FunctionTool
 from typing import Dict, Any, Optional
 import logging
-from rag.config import (
+from app.config import (
     PROJECT_ID,
     GCS_DEFAULT_STORAGE_CLASS,
     GCS_DEFAULT_LOCATION,
