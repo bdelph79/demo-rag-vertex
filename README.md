@@ -10,7 +10,7 @@ In the era of Generative AI, the biggest challenge for enterprises is **hallucin
 - **Grounding:** Ensuring AI responses are based strictly on *your* private data.
 - **Security:** Keeping data within your GCP perimeter using IAM and VPC-native services.
 - **Scalability:** Leveraging Serverless Cloud Run to handle thousands of requests with zero infrastructure management.
-- **Interoperability:** Seamlessly integrating with **Gemini Enterprise** for high-performance reasoning.
+- **Interoperability:** Seamlessly integrating with **Gemini Enterprise** for high-performance reasoning and enterprise-grade SLA/Compliance.
 
 ---
 
@@ -71,10 +71,11 @@ The agent is equipped with a suite of functional tools:
 
 ## 💎 Gemini Enterprise Integration
 
-This project is fully compatible with **Gemini Enterprise** features:
-1. **Regional Performance:** Optimized for `us-central1` and `us-east1` to minimize latency.
-2. **Model Flexibility:** Supports `gemini-3.1-flash-lite` for cost-efficiency and `gemini-1.5-pro` for complex reasoning.
-3. **IAM Security:** Service-account-to-service-account authentication ensures that only authorized applications can call the models.
+This project is optimized for **Gemini Enterprise**, providing:
+1. **Managed Safety:** Leverages enterprise-grade safety filters and content moderation.
+2. **Data Residency:** Configurable regional endpoints (e.g., `us-central1`, `europe-west1`) to comply with local data laws.
+3. **IAM Security:** Deep integration with Google Cloud IAM. Uses Service Account impersonation to ensure the "Principle of Least Privilege".
+4. **Provisioned Throughput:** Supports high-scale production workloads with guaranteed model availability.
 
 ---
 
@@ -87,7 +88,7 @@ This project is fully compatible with **Gemini Enterprise** features:
    ```
 2. **Set Environment:**
    ```bash
-   export GOOGLE_CLOUD_PROJECT="your-project-id"
+   export GOOGLE_CLOUD_PROJECT="<YOUR_PROJECT_ID>"
    export GOOGLE_CLOUD_LOCATION="us-central1"
    ```
 3. **Run App:**
@@ -98,7 +99,7 @@ This project is fully compatible with **Gemini Enterprise** features:
 ### Deployment
 The project is scaffolded for automated deployment via `agents-cli`:
 ```bash
-agents-cli deploy --project gemini-enterprise-496008 --region us-central1 --memory 1Gi
+agents-cli deploy --project <YOUR_PROJECT_ID> --region us-central1 --memory 1Gi
 ```
 
 ---
@@ -110,7 +111,7 @@ agents-cli deploy --project gemini-enterprise-496008 --region us-central1 --memo
 | **Accuracy** | Drastically reduces hallucinations by grounding in specific corpora. |
 | **Time-to-Value** | "Zero-config" vector search; no need to manage Elasticsearch or Pinecone. |
 | **Cost** | Uses `flash-lite` models and serverless scaling to minimize GCP spend. |
-| **Compliance** | Data never leaves the GCP environment; supports Data Residency. |
+| **Compliance** | Data never leaves the GCP environment; supports Data Residency and Enterprise Safety. |
 
 ---
 
