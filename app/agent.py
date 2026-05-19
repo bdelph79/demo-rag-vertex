@@ -1,6 +1,7 @@
 # ADK core imports
 import logging
 from google.adk.agents import Agent
+from google.adk.models import Gemini
 from google.adk.tools.load_memory_tool import load_memory_tool
 
 # Local tool imports
@@ -10,6 +11,7 @@ from app.config import (
     AGENT_NAME,
     AGENT_MODEL,
     AGENT_OUTPUT_KEY,
+    LOCATION,
     LOG_LEVEL,
     LOG_FORMAT
 )
@@ -23,7 +25,10 @@ logger.info(f"Initializing agent {AGENT_NAME} with model {AGENT_MODEL}")
 # Create the RAG management agent
 agent = Agent(
     name=AGENT_NAME,
-    model=AGENT_MODEL,
+    model=Gemini(
+        model=AGENT_MODEL,
+        location=LOCATION
+    ),
     description="Agent for managing and searching Vertex AI RAG corpora and GCS buckets",
     instruction="""
     You are a helpful assistant that manages and searches RAG corpora in Vertex AI and Google Cloud Storage buckets.
